@@ -14,7 +14,7 @@ struct PageTwoView: View {
         ZStack{
             Background()
             VStack{
-                TitleWidget(words: "page two")
+                TitleWidget(words: String(score))
             }
         }
     }

@@ -18,7 +18,7 @@ enum Page {
 }
 
 class ViewSelector: ObservableObject {
-    @Published var currentPage: Page = .page2
+    @Published var currentPage: Page = .page1
 }
 
 struct MasterView: View {
