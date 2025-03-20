@@ -12,7 +12,7 @@ import SwiftUI
 struct Background: View {
     var body: some View {
         VStack{
-            Color(.black)
+            Color(.white)
         }.edgesIgnoringSafeArea(.all)
     }
 }
@@ -23,7 +23,7 @@ struct TextWidget: View {
     var body: some View {
         Text(words).font(Font.custom("Arial", size: 24))
             .padding()
-            .foregroundColor(.white)
+            .foregroundColor(.black)
     }
 }
 
@@ -33,6 +33,6 @@ struct TitleWidget: View {
     var body: some View {
         Text(words).font(Font.custom("Arial", size: 28))
             .padding()
-            .foregroundColor(.white)
+            .foregroundColor(.black)
     }
 }

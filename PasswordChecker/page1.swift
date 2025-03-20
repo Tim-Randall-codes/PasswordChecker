@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
-var score: Int = 0
-var hasSmall: Bool = false
-var hasNumbers: Bool = false
+var numberOfCharacters: Int = 0
+var numberOfOptions: Int = 0
+var numberOfPossiblePasswords: Int = 0
+var hasSmalls: Bool = false
 var hasCapitals: Bool = false
+var hasNumbers: Bool = false
 var hasSpecials: Bool = false
 
 struct PageOneView: View {
@@ -36,8 +38,9 @@ struct PageOneView: View {
     }
     func judgePassword(password: String){
         for char in usersPassword {
+            numberOfCharacters += 1
             if char == "a" || char == "b" || char == "c" || char == "d" || char == "e" || char == "f" || char == "g" || char == "h" || char == "i" || char == "j" || char == "k" || char == "l" || char == "m" || char == "n" || char == "o" || char == "p" || char == "q" || char == "r" || char == "s" || char == "t" || char == "u" || char == "v" || char == "w" || char == "x" || char == "y" || char == "z" {
-                hasSmall = true
+                hasSmalls = true
             }
             else if char == "0" || char == "1" || char == "2" || char == "3" || char == "4" || char == "5" || char == "6" || char == "7" || char == "8" || char == "9" {
                 hasNumbers = true
@@ -49,8 +52,18 @@ struct PageOneView: View {
                 hasSpecials = true
             }
         }
-        if hasSmall == true {
-            score += 25
+        if hasSmalls == true {
+            numberOfOptions += 26
         }
+        if hasNumbers == true {
+            numberOfOptions += 10
+        }
+        if hasCapitals == true {
+            numberOfOptions += 26
+        }
+        if hasSpecials == true {
+            numberOfOptions += 10
+        }
+        numberOfPossiblePasswords = Int(pow(Double(numberOfOptions), Double(numberOfCharacters))) // weird way to put something to a power
     }
 }
